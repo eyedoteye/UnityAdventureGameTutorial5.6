@@ -6,9 +6,7 @@ public class Inventory : MonoBehaviour
     public Image[] itemImages = new Image[numItemSlots];
     public Item[] items = new Item[numItemSlots];
 
-
     public const int numItemSlots = 4;
-
 
     public void AddItem(Item itemToAdd)
     {
@@ -23,7 +21,6 @@ public class Inventory : MonoBehaviour
             }
         }
     }
-
 
     public void RemoveItem (Item itemToRemove)
     {
