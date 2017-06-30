@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
-  animator: {fileID: 0}
+  animator: {fileID: 1161063977}
   trigger: LowTake
 --- !u!114 &1095430322
 MonoBehaviour:
@@ -1536,6 +1536,11 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1161063975}
   m_Script: {fileID: 11500000, guid: ebc282696ec73d44fa0abf91b8534516, type: 3}
+--- !u!95 &1161063977 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95845586234102780, guid: 1baaddcbf3beffb469feacee2497b772,
+    type: 2}
+  m_PrefabInternal: {fileID: 1161063975}
 --- !u!114 &1170795811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3064,7 +3069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
-  animator: {fileID: 0}
+  animator: {fileID: 1161063977}
   trigger: AttemptTake
 --- !u!114 &1315678196
 MonoBehaviour:
@@ -3559,7 +3564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
-  animator: {fileID: 0}
+  animator: {fileID: 1161063977}
   trigger: MedTake
 --- !u!114 &1735739341
 MonoBehaviour:
@@ -3658,7 +3663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
-  animator: {fileID: 0}
+  animator: {fileID: 1161063977}
   trigger: HighTake
 --- !u!1 &1924647221 stripped
 GameObject:
