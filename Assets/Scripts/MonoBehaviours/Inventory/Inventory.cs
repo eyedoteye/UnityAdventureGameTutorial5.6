@@ -22,7 +22,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void RemoveItem (Item itemToRemove)
+    public void RemoveItem(Item itemToRemove)
     {
         for (int i = 0; i < items.Length; i++)
         {
