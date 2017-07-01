@@ -6,12 +6,11 @@ public class ConditionCollection : ScriptableObject
     public Condition[] requiredConditions = new Condition[0];
     public ReactionCollection reactionCollection;
 
-
     public bool CheckAndReact()
     {
         for (int i = 0; i < requiredConditions.Length; i++)
         {
-            if (!AllConditions.CheckCondition (requiredConditions[i]))
+            if (!AllConditions.CheckCondition(requiredConditions[i]))
                 return false;
         }
 

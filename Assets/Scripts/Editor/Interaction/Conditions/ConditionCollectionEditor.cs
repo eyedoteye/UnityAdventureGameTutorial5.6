@@ -20,13 +20,11 @@ public class ConditionCollectionEditor : EditorWithSubEditors<ConditionEditor, C
     private const string conditionCollectionPropReactionCollectionName = "reactionCollection";
 
 
-    private void OnEnable ()
+    private void OnEnable()
     {
-        conditionCollection = (ConditionCollection)target;
-
         if (target == null)
         {
-            DestroyImmediate (this);
+            DestroyImmediate(this);
             return;
         }
 
@@ -34,26 +32,28 @@ public class ConditionCollectionEditor : EditorWithSubEditors<ConditionEditor, C
         conditionsProperty = serializedObject.FindProperty(conditionCollectionPropRequiredConditionsName);
         reactionCollectionProperty = serializedObject.FindProperty(conditionCollectionPropReactionCollectionName);
 
-        CheckAndCreateSubEditors (conditionCollection.requiredConditions);
+        conditionCollection = (ConditionCollection)target;
+
+        CheckAndCreateSubEditors(conditionCollection.requiredConditions);
     }
 
 
-    private void OnDisable ()
+    private void OnDisable()
     {
-        CleanupEditors ();
+        CleanupEditors();
     }
 
 
-    protected override void SubEditorSetup (ConditionEditor editor)
+    protected override void SubEditorSetup(ConditionEditor editor)
     {
         editor.editorType = ConditionEditor.EditorType.ConditionCollection;
         editor.conditionsProperty = conditionsProperty;
     }
 
 
-    public override void OnInspectorGUI ()
+    public override void OnInspectorGUI()
     {
-        serializedObject.Update ();
+        serializedObject.Update();
 
         CheckAndCreateSubEditors(conditionCollection.requiredConditions);
         
@@ -64,14 +64,14 @@ public class ConditionCollectionEditor : EditorWithSubEditors<ConditionEditor, C
 
         descriptionProperty.isExpanded = EditorGUILayout.Foldout(descriptionProperty.isExpanded, descriptionProperty.stringValue);
 
-        if (GUILayout.Button("Remove Collection", GUILayout.Width(collectionButtonWidth)))
+        if(GUILayout.Button("Remove Collection", GUILayout.Width(collectionButtonWidth)))
         {
-            collectionsProperty.RemoveFromObjectArray (conditionCollection);
+            collectionsProperty.RemoveFromObjectArray(conditionCollection);
         }
 
         EditorGUILayout.EndHorizontal();
         
-        if (descriptionProperty.isExpanded)
+        if(descriptionProperty.isExpanded)
         {
             ExpandedGUI ();
         }
@@ -83,7 +83,7 @@ public class ConditionCollectionEditor : EditorWithSubEditors<ConditionEditor, C
     }
 
 
-    private void ExpandedGUI ()
+    private void ExpandedGUI()
     {
         EditorGUILayout.Space();
 
@@ -100,15 +100,15 @@ public class ConditionCollectionEditor : EditorWithSubEditors<ConditionEditor, C
         EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.BeginVertical(GUI.skin.box);
-        for (int i = 0; i < subEditors.Length; i++)
+        for(int i = 0; i < subEditors.Length; i++)
         {
             subEditors[i].OnInspectorGUI();
         }
         EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.BeginHorizontal();
-        GUILayout.FlexibleSpace ();
-        if (GUILayout.Button("+", GUILayout.Width(conditionButtonWidth)))
+        GUILayout.FlexibleSpace();
+        if(GUILayout.Button("+", GUILayout.Width(conditionButtonWidth)))
         {
             Condition newCondition = ConditionEditor.CreateCondition();
             conditionsProperty.AddToObjectArray(newCondition);

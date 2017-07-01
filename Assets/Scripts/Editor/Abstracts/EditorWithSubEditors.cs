@@ -7,7 +7,6 @@ public abstract class EditorWithSubEditors<TEditor, TTarget> : Editor
 {
     protected TEditor[] subEditors;
 
-
     protected void CheckAndCreateSubEditors (TTarget[] subEditorTargets)
     {
         if (subEditors != null && subEditors.Length == subEditorTargets.Length)
@@ -24,7 +23,6 @@ public abstract class EditorWithSubEditors<TEditor, TTarget> : Editor
         }
     }
 
-
     protected void CleanupEditors ()
     {
         if (subEditors == null)
@@ -37,7 +35,6 @@ public abstract class EditorWithSubEditors<TEditor, TTarget> : Editor
 
         subEditors = null;
     }
-
 
     protected abstract void SubEditorSetup (TEditor editor);
 }
