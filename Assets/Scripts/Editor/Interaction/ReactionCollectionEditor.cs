@@ -22,7 +22,7 @@ public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Rea
     private readonly float verticalSpacing = EditorGUIUtility.standardVerticalSpacing;
 
 
-    private void OnEnable ()
+    private void OnEnable()
     {
         reactionCollection = (ReactionCollection)target;
 
@@ -30,37 +30,37 @@ public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Rea
 
         CheckAndCreateSubEditors (reactionCollection.reactions);
 
-        SetReactionNamesArray ();
+        SetReactionNamesArray();
     }
 
 
-    private void OnDisable ()
+    private void OnDisable()
     {
-        CleanupEditors ();
+        CleanupEditors();
     }
 
 
-    protected override void SubEditorSetup (ReactionEditor editor)
+    protected override void SubEditorSetup(ReactionEditor editor)
     {
         editor.reactionsProperty = reactionsProperty;
     }
 
 
-    public override void OnInspectorGUI ()
+    public override void OnInspectorGUI()
     {
-        serializedObject.Update ();
+        serializedObject.Update();
 
         CheckAndCreateSubEditors(reactionCollection.reactions);
 
         for (int i = 0; i < subEditors.Length; i++)
         {
-            subEditors[i].OnInspectorGUI ();
+            subEditors[i].OnInspectorGUI();
         }
 
         if (reactionCollection.reactions.Length > 0)
         {
             EditorGUILayout.Space();
-            EditorGUILayout.Space ();
+            EditorGUILayout.Space();
         }
 
         Rect fullWidthRect = GUILayoutUtility.GetRect(GUIContent.none, GUIStyle.none, GUILayout.Height(dropAreaHeight + verticalSpacing));
@@ -74,16 +74,16 @@ public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Rea
         Rect rightAreaRect = leftAreaRect;
         rightAreaRect.x += rightAreaRect.width + controlSpacing;
 
-        TypeSelectionGUI (leftAreaRect);
-        DragAndDropAreaGUI (rightAreaRect);
+        TypeSelectionGUI(leftAreaRect);
+        DragAndDropAreaGUI(rightAreaRect);
 
         DraggingAndDropping(rightAreaRect, this);
 
-        serializedObject.ApplyModifiedProperties ();
+        serializedObject.ApplyModifiedProperties();
     }
 
 
-    private void TypeSelectionGUI (Rect containingRect)
+    private void TypeSelectionGUI(Rect containingRect)
     {
         Rect topHalf = containingRect;
         topHalf.height *= 0.5f;
@@ -93,38 +93,38 @@ public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Rea
 
         selectedIndex = EditorGUI.Popup(topHalf, selectedIndex, reactionTypeNames);
 
-        if (GUI.Button (bottomHalf, "Add Selected Reaction"))
+        if(GUI.Button(bottomHalf, "Add Selected Reaction"))
         {
             Type reactionType = reactionTypes[selectedIndex];
             Reaction newReaction = ReactionEditor.CreateReaction (reactionType);
-            reactionsProperty.AddToObjectArray (newReaction);
+            reactionsProperty.AddToObjectArray(newReaction);
         }
     }
 
 
-    private static void DragAndDropAreaGUI (Rect containingRect)
+    private static void DragAndDropAreaGUI(Rect containingRect)
     {
         GUIStyle centredStyle = GUI.skin.box;
         centredStyle.alignment = TextAnchor.MiddleCenter;
         centredStyle.normal.textColor = GUI.skin.button.normal.textColor;
 
-        GUI.Box (containingRect, "Drop new Reactions here", centredStyle);
+        GUI.Box(containingRect, "Drop new Reactions here", centredStyle);
     }
 
 
-    private static void DraggingAndDropping (Rect dropArea, ReactionCollectionEditor editor)
+    private static void DraggingAndDropping(Rect dropArea, ReactionCollectionEditor editor)
     {
         Event currentEvent = Event.current;
 
-        if (!dropArea.Contains (currentEvent.mousePosition))
+        if(!dropArea.Contains(currentEvent.mousePosition))
             return;
 
-        switch (currentEvent.type)
+        switch(currentEvent.type)
         {
             case EventType.DragUpdated:
 
                 DragAndDrop.visualMode = IsDragValid () ? DragAndDropVisualMode.Link : DragAndDropVisualMode.Rejected;
-                currentEvent.Use ();
+                currentEvent.Use();
 
                 break;
             case EventType.DragPerform:
@@ -137,8 +137,8 @@ public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Rea
 
                     Type reactionType = script.GetClass();
 
-                    Reaction newReaction = ReactionEditor.CreateReaction (reactionType);
-                    editor.reactionsProperty.AddToObjectArray (newReaction);
+                    Reaction newReaction = ReactionEditor.CreateReaction(reactionType);
+                    editor.reactionsProperty.AddToObjectArray(newReaction);
                 }
 
                 currentEvent.Use();
@@ -148,17 +148,17 @@ public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Rea
     }
 
 
-    private static bool IsDragValid ()
+    private static bool IsDragValid()
     {
-        for (int i = 0; i < DragAndDrop.objectReferences.Length; i++)
+        for(int i = 0; i < DragAndDrop.objectReferences.Length; i++)
         {
-            if (DragAndDrop.objectReferences[i].GetType () != typeof (MonoScript))
+            if (DragAndDrop.objectReferences[i].GetType() != typeof (MonoScript))
                 return false;
             
             MonoScript script = DragAndDrop.objectReferences[i] as MonoScript;
-            Type scriptType = script.GetClass ();
+            Type scriptType = script.GetClass();
 
-            if (!scriptType.IsSubclassOf (typeof(Reaction)))
+            if (!scriptType.IsSubclassOf(typeof(Reaction)))
                 return false;
 
             if (scriptType.IsAbstract)
@@ -169,7 +169,7 @@ public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Rea
     }
 
 
-    private void SetReactionNamesArray ()
+    private void SetReactionNamesArray()
     {
         Type reactionType = typeof(Reaction);
 

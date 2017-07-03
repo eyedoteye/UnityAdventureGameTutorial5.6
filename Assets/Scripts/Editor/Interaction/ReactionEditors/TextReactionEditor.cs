@@ -16,27 +16,27 @@ public class TextReactionEditor : ReactionEditor
     private const string textReactionPropDelayName = "delay";
 
 
-    protected override void Init ()
+    protected override void Init()
     {
-        messageProperty = serializedObject.FindProperty (textReactionPropMessageName);
-        textColorProperty = serializedObject.FindProperty (textReactionPropTextColorName);
-        delayProperty = serializedObject.FindProperty (textReactionPropDelayName);
+        messageProperty = serializedObject.FindProperty(textReactionPropMessageName);
+        textColorProperty = serializedObject.FindProperty(textReactionPropTextColorName);
+        delayProperty = serializedObject.FindProperty(textReactionPropDelayName);
     }
 
 
-    protected override void DrawReaction ()
+    protected override void DrawReaction()
     {
-        EditorGUILayout.BeginHorizontal ();
-        EditorGUILayout.LabelField ("Message", GUILayout.Width (EditorGUIUtility.labelWidth - areaWidthOffset));
-        messageProperty.stringValue = EditorGUILayout.TextArea (messageProperty.stringValue, GUILayout.Height (EditorGUIUtility.singleLineHeight * messageGUILines));
-        EditorGUILayout.EndHorizontal ();
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.LabelField("Message", GUILayout.Width(EditorGUIUtility.labelWidth - areaWidthOffset));
+        messageProperty.stringValue = EditorGUILayout.TextArea(messageProperty.stringValue, GUILayout.Height(EditorGUIUtility.singleLineHeight * messageGUILines));
+        EditorGUILayout.EndHorizontal();
 
-        EditorGUILayout.PropertyField (textColorProperty);
-        EditorGUILayout.PropertyField (delayProperty);
+        EditorGUILayout.PropertyField(textColorProperty);
+        EditorGUILayout.PropertyField(delayProperty);
     }
 
 
-    protected override string GetFoldoutLabel ()
+    protected override string GetFoldoutLabel()
     {
         return "Text Reaction";
     }

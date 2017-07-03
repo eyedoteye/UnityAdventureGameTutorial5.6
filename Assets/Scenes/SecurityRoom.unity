@@ -138,6 +138,19 @@ MonoBehaviour:
   audioSource: {fileID: 905901658}
   audioClip: {fileID: 8300000, guid: 0d494c2c0a97b4fdc8de4ad7f2e44f43, type: 3}
   delay: 0
+--- !u!114 &28315446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d482a9551d8b074097fdb7beded4043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  item: {fileID: 0}
 --- !u!1001 &65161318
 Prefab:
   m_ObjectHideFlags: 0
@@ -364,6 +377,20 @@ MonoBehaviour:
   audioSource: {fileID: 905901659}
   audioClip: {fileID: 8300000, guid: ebdaadc1993914f48991efbeda5ed08e, type: 3}
   delay: 0
+--- !u!114 &246200878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c32f1270758a64ba4bc71dbf7e498b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  gameObject: {fileID: 0}
+  activeState: 0
 --- !u!114 &294159636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +405,53 @@ MonoBehaviour:
   message: Hey Frank, you shouldn't go through without the boss's coffee.
   textColor: {r: 0, g: 1, b: 1, a: 1}
   delay: 0
+--- !u!1 &346252808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 346252810}
+  - component: {fileID: 346252809}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &346252809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 346252808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc7ecfe98531f2429694b8c81a6748a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reactions:
+  - {fileID: 2012976578}
+  - {fileID: 1628699410}
+  - {fileID: 246200878}
+  - {fileID: 28315446}
+  - {fileID: 2040392814}
+  - {fileID: 1427589353}
+--- !u!4 &346252810
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 346252808}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.98816085, y: -2.0534256, z: -1.5729734}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &503792339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1879,6 +1953,20 @@ MonoBehaviour:
   message: ACCESS DENIED!
   textColor: {r: 1, g: 0, b: 0, a: 1}
   delay: 0
+--- !u!114 &1427589353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a931d1c243b462c46bad5f7d2aae5949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  animator: {fileID: 0}
+  trigger: 
 --- !u!114 &1497693457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2023,6 +2111,20 @@ MonoBehaviour:
   - {fileID: 503792339}
   - {fileID: 795348259}
   - {fileID: 1906371743}
+--- !u!114 &1628699410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37928671becf1a4429a8088d8bec2f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  behaviour: {fileID: 0}
+  enabledState: 0
 --- !u!114 &1637142256 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114818655576360702, guid: 1baaddcbf3beffb469feacee2497b772,
@@ -2418,6 +2520,33 @@ MonoBehaviour:
   reactions:
   - {fileID: 104556140}
   - {fileID: 294159636}
+--- !u!114 &2012976578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37928671becf1a4429a8088d8bec2f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  behaviour: {fileID: 0}
+  enabledState: 0
+--- !u!114 &2040392814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b804958e1981f9544989d65e32719692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  item: {fileID: 0}
 --- !u!114 &2070106622
 MonoBehaviour:
   m_ObjectHideFlags: 0
